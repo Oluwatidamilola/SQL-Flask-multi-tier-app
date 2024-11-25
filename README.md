@@ -16,7 +16,7 @@ CI/CD Automation: Uses GitHub Actions for automated builds, tests, scans, and de
 
 Project Structure
 
-`SQL-Flask-multi-tier-app/
+``SQL-Flask-multi-tier-app/
 ├── app.py                          # Main Flask application entry point
 ├── wsgi.py                         # WSGI entry point for production servers like Gunicorn
 ├── models.py                       # SQLAlchemy models for database schema
@@ -29,7 +29,7 @@ Project Structure
 ├── sealed-db-secrets.yaml          # Encrypted secrets for secure Kubernetes storage
 ├── postgres-exporter.yaml          # Deployment for Prometheus Postgres Exporter
 ├── encryption-config.yaml          # Encryption configuration for Kubernetes secrets
-└── .github/workflows/ci-cd.yml     # GitHub Actions workflow for CI/CD`
+└── .github/workflows/ci-cd.yml     # GitHub Actions workflow for CI/CD``
 
 Prerequisites
 Ensure the following are installed on your system:
