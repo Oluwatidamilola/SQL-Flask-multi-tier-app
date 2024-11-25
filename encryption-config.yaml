@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: encryption-config
+  namespace: kube-system
+data:
+  encryption-config.yaml: |
+    kind: EncryptionConfiguration
+    apiVersion: apiserver.config.k8s.io/v1
+    resources:
+    - resources:
+      - secrets
+      providers:
+      - aescbc:
+          keys:
+          - name: key1
+            secret: 29IqWUsBCz8GR6MwOzN/H6XmaruQoTDghuy1SUaeDdo=
+      - identity: {}

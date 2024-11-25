@@ -1,0 +1,72 @@
+# Core dependencies
+alembic==1.14.0                    # Database migrations
+blinker==1.9.0                     # Signal support for Flask
+certifi==2024.8.30                 # SSL certificates
+charset-normalizer==3.4.0          # Charset detection
+click==8.1.7                       # Command-line utilities
+cryptography==43.0.3               # Cryptographic functions
+dill==0.3.9                        # Serialization
+Flask==3.1.0                       # Web framework
+Flask-Migrate==4.0.7               # Flask database migrations
+Flask-SQLAlchemy==3.1.1            # Flask ORM support
+greenlet==3.1.1                    # Concurrency support for SQLAlchemy
+idna==3.10                         # Internationalized domain names
+Jinja2==3.1.4                      # Templating engine
+MarkupSafe==3.0.2                  # Safeguards for untrusted input
+numpy==1.24.3                      # Numerical computations
+packaging==24.2                    # Package version parsing
+platformdirs==4.3.6                # Platform-specific directory utilities
+psycopg2-binary==2.9.10            # PostgreSQL database adapter
+PyYAML==6.0.2                      # YAML parsing and generation
+SQLAlchemy==2.0.36                 # Database ORM
+Werkzeug==3.1.3                    # WSGI utilities
+zipp==3.21.0                       # File archiving support
+
+# Development and linting tools
+ansible==8.7.0                     # Automation tool
+ansible-core==2.15.13              # Core dependency for Ansible
+isort==5.13.2                      # Import sorting
+logilab-common==1.8.2              # Utilities for pylint and others
+mccabe==0.7.0                      # Complexity checker
+pylint==3.3.1                      # Python linter
+tomli==2.1.0                       # TOML parsing
+tomlkit==0.13.2                    # TOML parsing and manipulation
+yamllint==1.35.1                   # YAML linter
+
+# Testing and packaging
+py==1.4.30                         # Helpers for testing tools
+python-dotenv
+pyinstaller==5.13.2                # Package Python apps into executables
+pyinstaller-hooks-contrib==2024.10 # PyInstaller helper hooks
+resolvelib==1.0.1                  # Dependency resolution
+
+# macOS-specific dependencies (install only on macOS)
+pyobjc-core==10.3.1; sys_platform == "darwin"
+pyobjc==10.3.1; sys_platform == "darwin"
+pyobjc-framework-Accessibility==10.3.1; sys_platform == "darwin"
+pyobjc-framework-Cocoa==10.3.1; sys_platform == "darwin"
+pyobjc-framework-CoreAudio==10.3.1; sys_platform == "darwin"
+pyobjc-framework-CoreData==10.3.1; sys_platform == "darwin"
+pyobjc-framework-CoreText==10.3.1; sys_platform == "darwin"
+pyobjc-framework-Metal==10.3.1; sys_platform == "darwin"
+pyobjc-framework-Quartz==10.3.1; sys_platform == "darwin"
+pyobjc-framework-WebKit==10.3.1; sys_platform == "darwin"
+py-applescript==1.0.3; sys_platform == "darwin" # AppleScript support
+py-sip-xnu==1.0.4; sys_platform == "darwin"     # macOS kernel tools
+mac_signing_buddy==1.0.0; sys_platform == "darwin"
+macholib==1.16.3; sys_platform == "darwin"
+macos_pkg_builder==2.3.0; sys_platform == "darwin"
+
+# Documentation and markdown tools
+Markdown==3.7                      # Markdown parsing
+markdown2==2.5.1                   # Alternative Markdown parser
+
+# Typing and extensions
+mypy-extensions==1.0.0             # Extensions for type checking
+typing_extensions==4.12.2          # Backport for typing features
+
+# Additional utilities
+cffi==1.17.1                       # Foreign Function Interface
+importlib-resources==5.0.7         # Resource file access
+importlib_metadata==8.5.0          # Metadata for installed packages
+pathspec==0.12.1                   # File pattern matching

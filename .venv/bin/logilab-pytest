@@ -1,0 +1,7 @@
+#!/Users/mac/SQL-Flask-multi-tier-app/.venv/bin/python3.9
+
+import warnings
+warnings.simplefilter('default', DeprecationWarning)
+
+from logilab.common.pytest import run
+run()
