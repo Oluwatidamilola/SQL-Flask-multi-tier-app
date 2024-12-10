@@ -2,10 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-app
+  namespace: production
   labels:
     app: flask-app
     environment: production
     version: v1
+    managed-by: helm
+    stage: production
 spec:
   replicas: 2
   selector:
@@ -19,14 +22,17 @@ spec:
       containers:
       - name: flask-app
         image: dgurutester/flask-app:latest
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
         env:
         - name: FLASK_ENV
           value: production
         - name: DATABASE_URI
-          value: postgres://user:password@db-host:5432/dbname
+          valueFrom:
+            secretKeyRef:
+              name: flask-app-secrets
+              key: DATABASE_URI
         resources:
           requests:
             memory: "128Mi"
