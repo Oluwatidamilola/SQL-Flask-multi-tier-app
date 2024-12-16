@@ -22,7 +22,7 @@ spec:
       containers:
       - name: flask-app
         image: dgurutester/flask-app:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
         env:

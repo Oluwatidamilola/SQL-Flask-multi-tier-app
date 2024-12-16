@@ -1,0 +1,17 @@
+app:
+  name: flask-app
+  replicas: 2
+  image: flask-app:latest
+  imagePullPolicy: Always
+  containerPort: 5000
+
+namespace: production
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 5000
+
+secrets:
+  name: flask-app-secrets
+  databaseUri: postgresql://user:password@host:port/database

@@ -1,4 +1,4 @@
-#!/Users/mac/SQL-Flask-multi-tier-app/.venv/bin/python3.9
+#!/Users/mac/SQL-Flask-multi-tier-app/.venv/bin/python3.13
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -1,60 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-app
-  namespace: production
-  labels:
-    app: flask-app
-    environment: production
-    version: v1
-    managed-by: helm
-    stage: production
+  name: { ? { .Values.app.name } }
+  namespace: { ? { .Values.namespace } }
 spec:
-  replicas: 2
+  replicas: { ? { .Values.app.replicas } }
   selector:
     matchLabels:
-      app: flask-app
+      app: { ? { .Values.app.name } }
   template:
     metadata:
       labels:
-        app: flask-app
+        app: { ? { .Values.app.name } }
     spec:
       containers:
-      - name: flask-app
-        image: dgurutester/flask-app:latest
-        imagePullPolicy: IfNotPresent
+      - name: { ? { .Values.app.name } }
+        image: { ? { .Values.app.image } }
+        imagePullPolicy: { ? { .Values.app.imagePullPolicy } }
         ports:
-        - containerPort: 5000
+        - containerPort: { ? { .Values.app.containerPort } }
         env:
-        - name: FLASK_ENV
-          value: production
         - name: DATABASE_URI
           valueFrom:
             secretKeyRef:
-              name: flask-app-secrets
+              name: { ? { .Values.secrets.name } }
               key: DATABASE_URI
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "250m"
-          limits:
-            memory: "256Mi"
-            cpu: "500m"
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 5000
-          initialDelaySeconds: 10
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 5000
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        lifecycle:
-          preStop:
-            exec:
-              command: [ "/bin/sh", "-c", "echo 'Shutting down...'" ]
-      restartPolicy: Always
-      terminationGracePeriodSeconds: 30

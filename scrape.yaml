@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: custom-scrape-config
+  namespace: monitoring
+data:
+  scrape.yaml: |
+    - job_name: 'custom-app'
+      static_configs:
+        - targets: ['custom-app-service:8080']
