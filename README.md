@@ -16,7 +16,7 @@ CI/CD Automation: Uses GitHub Actions for automated builds, tests, scans, and de
 
 Project Structure
 
-SQL-Flask-multi-tier-app/
+``SQL-Flask-multi-tier-app/
 ├── app.py                          # Main Flask application entry point
 ├── wsgi.py                         # WSGI entry point for production servers like Gunicorn
 ├── models.py                       # SQLAlchemy models for database schema
@@ -29,77 +29,75 @@ SQL-Flask-multi-tier-app/
 ├── sealed-db-secrets.yaml          # Encrypted secrets for secure Kubernetes storage
 ├── postgres-exporter.yaml          # Deployment for Prometheus Postgres Exporter
 ├── encryption-config.yaml          # Encryption configuration for Kubernetes secrets
-└── .github/workflows/ci-cd.yml     # GitHub Actions workflow for CI/CD
-Getting Started
+└── .github/workflows/ci-cd.yml     # GitHub Actions workflow for CI/CD``
+
 Prerequisites
 Ensure the following are installed on your system:
-
 Python 3.9+
 PostgreSQL 13+
 Docker
 Kubernetes (with kubectl configured and nginx-ingress installed)
 Snyk CLI (for security scanning)
-Setup
+               
+               Setup
 1. Clone the Repository
-
-git clone https://github.com/your-username/sql-flask-multi-tier-app.git
+`git clone https://github.com/your-username/sql-flask-multi-tier-app.git`
 cd sql-flask-multi-tier-app
+
 2. Create a Virtual Environment
+`python -m venv .venv
+source .venv/bin/activate`
 
-python -m venv .venv
-source .venv/bin/activate
-3. Install Dependencies
+4. Install Dependencie
+`pip install -r requirements.txt`
 
-pip install -r requirements.txt
 4. Configure the Database
 Set up a PostgreSQL instance and update the DATABASE_URL in db-secrets.yaml or config.py:
-
 DATABASE_URL: "postgresql://<username>:<password>@<host>:<port>/<database>"
+
 5. Run the Application Locally
 Start the Flask development server:
-
-flask run
-Access the application at http://127.0.0.1:5000.
+`flask run
+Access the application at http://127.0.0.1:5000`
 
 Using Docker
 Build the Docker Image
+`docker build -t dgurutester/flask-app:latest .`
 
-docker build -t dgurutester/flask-app:latest .
 Run the Container
+`docker run -d -p 5000:5000 dgurutester/flask-app:latest`
 
-docker run -d -p 5000:5000 dgurutester/flask-app:latest
 Access the application at http://localhost:5000.
-
 Deploying to Kubernetes
 1. Apply Secrets
 Ensure the database credentials are securely stored using Kubernetes secrets:
-kubectl apply -f db-secrets.yaml
+`kubectl apply -f db-secrets.yaml`
 
 2. Deploy the Application
-Deploy the Flask app, service, and ingress:
+`Deploy the Flask app, service, and ingress:
 kubectl apply -f flask-app-deployment.yaml
 kubectl apply -f flask-app-service.yaml
-kubectl apply -f flask-app-ingress.yaml
+kubectl apply -f flask-app-ingress.yaml`
 
 3. Verify the Deployment
 Check if all pods are running:
-kubectl get pods
+`kubectl get pods`
 
 4. Access the Application
 Update your /etc/hosts file to include:
-<ingress_external_ip> flask-app.local
-Access the application at http://flask-app.local.
+`<ingress_external_ip> flask-app.local`
 
+Access the application at http://flask-app.local.
 Monitoring with Prometheus
 Deploy the PostgreSQL Exporter:
 
-kubectl apply -f postgres-exporter.yaml
-Access Prometheus metrics at:
+`kubectl apply -f postgres-exporter.yaml`
 
-http://<external-ip>:9187/metrics
+Access Prometheus metrics at:
+`http://<external-ip>:9187/metrics`
+
 CI/CD Automation with GitHub Actions
 The CI/CD pipeline is defined in .github/workflows/ci-cd.yml. It automates:
-
 Code Checkout and Python Setup:
 Ensures the repository is cloned and Python 3.9 is configured.
 Dependency Installation and Testing:
@@ -150,14 +148,14 @@ We welcome contributions to this project. To contribute:
 Fork the repository.
 Create a feature branch:
 
-git checkout -b feature/new-feature
+`git checkout -b feature/new-feature`
 Commit changes:
-
-git commit -m "Add new feature"
+`git commit -m "Add new feature"`
 Push to your fork:
 
-git push origin feature/new-feature
+`git push origin feature/new-feature`
 Open a pull request.
+
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
